@@ -69,4 +69,19 @@ function findFriends(
 console.log(findFriends(friends, (friend) => friend.name.startsWith('Pa')));
 console.log(findFriends(friends, (friend) => friend.age < 35));
 
+// Adding a new interest to a friend's interest list
+function addInterest(f: Friend, interest: string): string[] {
+    // If the interest list does not exist, initialize to an empty array
+    if (!f.interests) {
+        f.interests = [];
+    }
+
+    // If the interest already exists, it is not added repeatedly
+    if (!f.interests.includes(interest)) {
+        f.interests.push(interest);
+    }
+
+    return f.interests;
+}
+console.log(addInterest(friends[0], 'Politics'))
 
